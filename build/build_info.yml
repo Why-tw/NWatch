@@ -1,0 +1,65 @@
+cmake:
+  application:
+    configuration-dir: '/home/i4why/workspace/zephyrproject/nwatch'
+    source-dir: '/home/i4why/workspace/zephyrproject/nwatch'
+  board:
+    name: 'nrf52840dk'
+    path:
+     - '/home/i4why/workspace/zephyrproject/zephyr/boards/nordic/nrf52840dk'
+    qualifiers: 'nrf52840'
+    revision: ''
+  devicetree:
+    bindings-dirs:
+     - '/home/i4why/workspace/zephyrproject/zephyr/dts/bindings'
+    files:
+     - '/home/i4why/workspace/zephyrproject/zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts'
+     - '/home/i4why/workspace/zephyrproject/nwatch/app.overlay'
+    include-dirs:
+     - '/home/i4why/workspace/zephyrproject/modules/hal/ambiq/dts'
+     - '/home/i4why/workspace/zephyrproject/modules/hal/atmel/include'
+     - '/home/i4why/workspace/zephyrproject/modules/hal/bouffalolab/include'
+     - '/home/i4why/workspace/zephyrproject/modules/hal/bouffalolab/include/zephyr'
+     - '/home/i4why/workspace/zephyrproject/modules/hal/gigadevice/include'
+     - '/home/i4why/workspace/zephyrproject/modules/hal/infineon/dts'
+     - '/home/i4why/workspace/zephyrproject/modules/hal/microchip/include'
+     - '/home/i4why/workspace/zephyrproject/modules/hal/microchip/dts'
+     - '/home/i4why/workspace/zephyrproject/modules/hal/nuvoton/dts'
+     - '/home/i4why/workspace/zephyrproject/modules/hal/nxp/dts'
+     - '/home/i4why/workspace/zephyrproject/modules/hal/stm32/dts'
+     - '/home/i4why/workspace/zephyrproject/modules/hal/ti/dts'
+     - '/home/i4why/workspace/zephyrproject/zephyr/include'
+     - '/home/i4why/workspace/zephyrproject/zephyr/include/zephyr'
+     - '/home/i4why/workspace/zephyrproject/zephyr/dts/common'
+     - '/home/i4why/workspace/zephyrproject/zephyr/dts/vendor'
+     - '/home/i4why/workspace/zephyrproject/zephyr/dts/rx'
+     - '/home/i4why/workspace/zephyrproject/zephyr/dts/x86'
+     - '/home/i4why/workspace/zephyrproject/zephyr/dts/xtensa'
+     - '/home/i4why/workspace/zephyrproject/zephyr/dts/sparc'
+     - '/home/i4why/workspace/zephyrproject/zephyr/dts/riscv'
+     - '/home/i4why/workspace/zephyrproject/zephyr/dts/posix'
+     - '/home/i4why/workspace/zephyrproject/zephyr/dts/arm64'
+     - '/home/i4why/workspace/zephyrproject/zephyr/dts/arm'
+     - '/home/i4why/workspace/zephyrproject/zephyr/dts/arc'
+     - '/home/i4why/workspace/zephyrproject/zephyr/dts'
+    user-files:
+     - '/home/i4why/workspace/zephyrproject/nwatch/app.overlay'
+  kconfig:
+    files:
+     - '/home/i4why/workspace/zephyrproject/zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840_defconfig'
+     - '/home/i4why/workspace/zephyrproject/nwatch/prj.conf'
+    user-files:
+     - '/home/i4why/workspace/zephyrproject/nwatch/prj.conf'
+  toolchain:
+    name: 'zephyr'
+    path: '/home/i4why/workspace/zephyrproject/zephyr-sdk-1.0.1'
+  vendor-specific:
+    nordic:
+      svdfile: '/home/i4why/workspace/zephyrproject/modules/hal/nordic/nrfx/bsp/stable/mdk/nrf52/nrf52840/nrf52840.svd'
+  zephyr:
+    version: '4.4.99'
+    zephyr-base: '/home/i4why/workspace/zephyrproject/zephyr'
+version: '0.1.0'
+west:
+  command: '/home/i4why/.venvs/zephyr/bin/west build -b nrf52840dk/nrf52840'
+  topdir: '/home/i4why/workspace/zephyrproject'
+  version: '1.5.0'
