@@ -1,4 +1,5 @@
 #include "gfx.h"
+#include <math.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
@@ -95,7 +96,6 @@ void gfx_draw_line(uint8_t *fb, int x1, int y1, int x2, int y2) {
     }
     return;
   }
-
   // Vertical line
   if (x1 == x2) {
     int sy = (y2 >= y1) ? 1 : -1;
@@ -106,34 +106,24 @@ void gfx_draw_line(uint8_t *fb, int x1, int y1, int x2, int y2) {
     }
     return;
   }
-
   int dx = abs(x2 - x1);
   int dy = abs(y2 - y1);
-
-  // 目前只支援 |slope| <= 1
   if (dy > dx)
     return;
-
   int sx = (x2 >= x1) ? 1 : -1;
   int sy = (y2 >= y1) ? 1 : -1;
-
   int err = dx / 2;
-
   int x = x1;
   int y = y1;
-
   while (1) {
     gfx_draw_pixel(fb, x, y);
-
     if (x == x2)
       break;
-
     err += dy;
     if (err >= dx) {
       err -= dx;
       y += sy;
     }
-
     x += sx;
   }
 }

@@ -304,27 +304,471 @@ events:
         mode: "cps"
         reason: "no_exist"
       -
-        path: "/home/i4why/workspace/zephyrproject/build/ZephyrBuildConfig.cmake"
+        path: "/home/i4why/workspace/zephyrproject/nwatch/ZephyrBuildConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
-        path: "/home/i4why/workspace/zephyrproject/build/zephyrbuild-config.cmake"
+        path: "/home/i4why/workspace/zephyrproject/nwatch/zephyrbuild-config.cmake"
         mode: "config"
         reason: "no_exist"
       -
-        path: "/home/i4why/workspace/zephyrproject/build/lib/cps/ZephyrBuild.cps"
+        path: "/home/i4why/workspace/zephyrproject/nwatch/lib/cps/ZephyrBuild.cps"
         mode: "cps"
         reason: "no_exist"
       -
-        path: "/home/i4why/workspace/zephyrproject/build/lib/cps/zephyrbuild.cps"
+        path: "/home/i4why/workspace/zephyrproject/nwatch/lib/cps/zephyrbuild.cps"
         mode: "cps"
         reason: "no_exist"
       -
-        path: "/home/i4why/workspace/zephyrproject/build/share/cps/ZephyrBuild.cps"
+        path: "/home/i4why/workspace/zephyrproject/nwatch/share/cps/ZephyrBuild.cps"
         mode: "cps"
         reason: "no_exist"
       -
-        path: "/home/i4why/workspace/zephyrproject/build/share/cps/zephyrbuild.cps"
+        path: "/home/i4why/workspace/zephyrproject/nwatch/share/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/watch/ZephyrBuildConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/watch/zephyrbuild-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/watch/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/watch/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/watch/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/watch/share/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+    found: null
+    search_context:
+      ENV{PATH}:
+        - "/home/i4why/.venvs/zephyr/bin"
+        - "/home/i4why/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+  -
+    kind: "find_package-v1"
+    backtrace:
+      - "/home/i4why/workspace/zephyrproject/zephyr/cmake/modules/zephyr_default.cmake:41 (find_package)"
+      - "/home/i4why/workspace/zephyrproject/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:66 (include)"
+      - "/home/i4why/workspace/zephyrproject/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:92 (include_boilerplate)"
+      - "CMakeLists.txt:3 (find_package)"
+    name: "ZephyrAppConfiguration"
+    configs:
+      -
+        filename: "ZephyrApp.cps"
+        kind: "cps"
+      -
+        filename: "zephyrapp.cps"
+        kind: "cps"
+      -
+        filename: "ZephyrAppConfig.cmake"
+        kind: "cmake"
+      -
+        filename: "zephyrapp-config.cmake"
+        kind: "cmake"
+    version_request:
+      exact: false
+    settings:
+      required: "optional"
+      quiet: true
+      global: false
+      policy_scope: false
+      bypass_provider: false
+      names:
+        - "ZephyrApp"
+      search_paths:
+        - "/home/i4why/workspace/zephyrproject/nwatch"
+      path_suffixes:
+        - ""
+      paths:
+        CMAKE_FIND_USE_CMAKE_PATH: true
+        CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+        CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: false
+        CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: false
+        CMAKE_FIND_USE_INSTALL_PREFIX: true
+        CMAKE_FIND_USE_PACKAGE_ROOT_PATH: true
+        CMAKE_FIND_USE_CMAKE_PACKAGE_REGISTRY: false
+        CMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY: false
+        CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
+    candidates:
+      -
+        path: "/home/i4why/workspace/zephyrproject/nwatch/build/CMakeFiles/pkgRedirects/ZephyrAppConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/nwatch/build/CMakeFiles/pkgRedirects/zephyrapp-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/nwatch/build/CMakeFiles/pkgRedirects/lib/cps/ZephyrApp.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/nwatch/build/CMakeFiles/pkgRedirects/lib/cps/zephyrapp.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/nwatch/build/CMakeFiles/pkgRedirects/share/cps/ZephyrApp.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/nwatch/build/CMakeFiles/pkgRedirects/share/cps/zephyrapp.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/nwatch/ZephyrAppConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/nwatch/zephyrapp-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/nwatch/lib/cps/ZephyrApp.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/nwatch/lib/cps/zephyrapp.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/nwatch/share/cps/ZephyrApp.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/nwatch/share/cps/zephyrapp.cps"
+        mode: "cps"
+        reason: "no_exist"
+    found: null
+    search_context:
+      ENV{PATH}:
+        - "/home/i4why/.venvs/zephyr/bin"
+        - "/home/i4why/.local/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+---
+events:
+  -
+    kind: "find_package-v1"
+    backtrace:
+      - "/home/i4why/workspace/zephyrproject/zephyr/cmake/modules/zephyr_default.cmake:28 (find_package)"
+      - "/home/i4why/workspace/zephyrproject/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:66 (include)"
+      - "/home/i4why/workspace/zephyrproject/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:92 (include_boilerplate)"
+      - "CMakeLists.txt:3 (find_package)"
+    name: "ZephyrBuildConfiguration"
+    configs:
+      -
+        filename: "ZephyrBuild.cps"
+        kind: "cps"
+      -
+        filename: "zephyrbuild.cps"
+        kind: "cps"
+      -
+        filename: "ZephyrBuildConfig.cmake"
+        kind: "cmake"
+      -
+        filename: "zephyrbuild-config.cmake"
+        kind: "cmake"
+    version_request:
+      exact: false
+    settings:
+      required: "optional"
+      quiet: true
+      global: false
+      policy_scope: false
+      bypass_provider: false
+      names:
+        - "ZephyrBuild"
+      search_paths:
+        - "/home/i4why/workspace/zephyrproject/zephyr/../*"
+      path_suffixes:
+        - ""
+      paths:
+        CMAKE_FIND_USE_CMAKE_PATH: true
+        CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+        CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: false
+        CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: false
+        CMAKE_FIND_USE_INSTALL_PREFIX: true
+        CMAKE_FIND_USE_PACKAGE_ROOT_PATH: true
+        CMAKE_FIND_USE_CMAKE_PACKAGE_REGISTRY: false
+        CMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY: false
+        CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
+    candidates:
+      -
+        path: "/home/i4why/workspace/zephyrproject/nwatch/build/CMakeFiles/pkgRedirects/ZephyrBuildConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/nwatch/build/CMakeFiles/pkgRedirects/zephyrbuild-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/nwatch/build/CMakeFiles/pkgRedirects/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/nwatch/build/CMakeFiles/pkgRedirects/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/nwatch/build/CMakeFiles/pkgRedirects/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/nwatch/build/CMakeFiles/pkgRedirects/share/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/.west/ZephyrBuildConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/.west/zephyrbuild-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/.west/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/.west/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/.west/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/.west/share/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/zephyr/ZephyrBuildConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/zephyr/zephyrbuild-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/zephyr/cmake/ZephyrBuildConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/zephyr/cmake/zephyrbuild-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/zephyr/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/zephyr/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/zephyr/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/zephyr/share/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/modules/ZephyrBuildConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/modules/zephyrbuild-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/modules/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/modules/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/modules/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/modules/share/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/tools/ZephyrBuildConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/tools/zephyrbuild-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/tools/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/tools/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/tools/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/tools/share/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/bootloader/ZephyrBuildConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/bootloader/zephyrbuild-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/bootloader/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/bootloader/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/bootloader/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/bootloader/share/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/zephyr-sdk-1.0.1/ZephyrBuildConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/zephyr-sdk-1.0.1/zephyrbuild-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/zephyr-sdk-1.0.1/cmake/ZephyrBuildConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/zephyr-sdk-1.0.1/cmake/zephyrbuild-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/zephyr-sdk-1.0.1/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/zephyr-sdk-1.0.1/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/zephyr-sdk-1.0.1/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/zephyr-sdk-1.0.1/share/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/.cache/ZephyrBuildConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/.cache/zephyrbuild-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/.cache/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/.cache/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/.cache/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/.cache/share/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/Kconfig/ZephyrBuildConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/Kconfig/zephyrbuild-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/Kconfig/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/Kconfig/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/Kconfig/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/Kconfig/share/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/app/ZephyrBuildConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/app/zephyrbuild-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/app/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/app/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/app/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/app/share/cps/zephyrbuild.cps"
         mode: "cps"
         reason: "no_exist"
       -
@@ -349,6 +793,30 @@ events:
         reason: "no_exist"
       -
         path: "/home/i4why/workspace/zephyrproject/nwatch/share/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/watch/ZephyrBuildConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/watch/zephyrbuild-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/watch/lib/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/watch/lib/cps/zephyrbuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/watch/share/cps/ZephyrBuild.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "/home/i4why/workspace/zephyrproject/watch/share/cps/zephyrbuild.cps"
         mode: "cps"
         reason: "no_exist"
     found: null
@@ -2900,51 +3368,6 @@ events:
       ENV{PATH}:
         - "/home/i4why/.venvs/zephyr/bin"
         - "/home/i4why/.local/bin"
-        - "/usr/local/sbin"
-        - "/usr/local/bin"
-        - "/usr/bin"
-        - "/usr/bin/site_perl"
-        - "/usr/bin/vendor_perl"
-        - "/usr/bin/core_perl"
-        - "/usr/lib/rustup/bin"
-      CMAKE_INSTALL_PREFIX: "/usr/local"
-...
-
----
-events:
-  -
-    kind: "find-v1"
-    backtrace:
-      - "/home/i4why/workspace/zephyrproject/zephyr/cmake/compiler/gcc/target.cmake:8 (find_program)"
-      - "/home/i4why/workspace/zephyrproject/zephyr/cmake/modules/FindTargetTools.cmake:116 (include)"
-      - "/home/i4why/workspace/zephyrproject/zephyr/cmake/modules/kernel.cmake:25 (find_package)"
-      - "/home/i4why/workspace/zephyrproject/zephyr/cmake/modules/zephyr_default.cmake:146 (include)"
-      - "/home/i4why/workspace/zephyrproject/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:66 (include)"
-      - "/home/i4why/workspace/zephyrproject/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:97 (include_boilerplate)"
-      - "CMakeLists.txt:3 (find_package)"
-    mode: "program"
-    variable: "CMAKE_C_COMPILER"
-    description: "Path to a program."
-    settings:
-      SearchFramework: "NEVER"
-      SearchAppBundle: "NEVER"
-      CMAKE_FIND_USE_CMAKE_PATH: true
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "/home/i4why/workspace/zephyrproject/zephyr-sdk-1.0.1/gnu/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc"
-    candidate_directories:
-      - "/home/i4why/workspace/zephyrproject/zephyr-sdk-1.0.1/gnu/"
-    found: "/home/i4why/workspace/zephyrproject/zephyr-sdk-1.0.1/gnu/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc"
-    search_context:
-      CMAKE_PREFIX_PATH:
-        - "/home/i4why/workspace/zephyrproject/zephyr-sdk-1.0.1/hosttools/sysroots/x86_64-pokysdk-linux/usr"
-      ENV{PATH}:
-        - "/home/i4why/.local/bin"
-        - "/home/i4why/.local/share/nvim/mason/bin"
-        - "/home/i4why/.venvs/zephyr/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
