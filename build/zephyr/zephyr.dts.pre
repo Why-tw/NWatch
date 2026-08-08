@@ -1289,12 +1289,28 @@ zephyr_udc0: &usbd {
 };
 # 0 "<command-line>" 2
 # 1 "/home/i4why/workspace/zephyrproject/nwatch/app.overlay" 1
-&i2c0 {
+/ {
+    chosen {
+        zephyr,display = &ssd1306;
+    };
+};
+
+&spi1 {
     status = "okay";
 
-    ssd1306: ssd1306@3c {
-        compatible = "solomon,ssd1306fb";
-        reg = <0x3c>;
+    cs-gpios = <&gpio0 28 (1 << 0)>;
+
+    ssd1306: display@0 {
+        com-invdir;
+        segment-remap;
+        compatible = "solomon,ssd1306";
+        status = "okay";
+
+        reg = <0>;
+        spi-max-frequency = <8000000>;
+
+        data-cmd-gpios = <&gpio0 29 (0 << 0)>;
+        reset-gpios = <&gpio0 30 (1 << 0)>;
 
         width = <128>;
         height = <64>;
@@ -1304,9 +1320,28 @@ zephyr_udc0: &usbd {
         display-offset = <0>;
         multiplex-ratio = <63>;
 
-        segment-remap;
-        com-invdir;
         prechargep = <0x22>;
+
+
+        oscillator-freq = <0x80>;
+        ready-time-ms = <10>;
+    };
+};
+
+&pinctrl {
+    spi1_default: spi1_default {
+        group1 {
+            psels = <((((((0) * 32U) + (16)) & 0x1FFU) << 0U) | ((4U & 0xFFU) << 24U))>,
+                    <((((((0) * 32U) + (15)) & 0x1FFU) << 0U) | ((5U & 0xFFU) << 24U))>;
+        };
+    };
+
+    spi1_sleep: spi1_sleep {
+        group1 {
+            psels = <((((((0) * 32U) + (16)) & 0x1FFU) << 0U) | ((4U & 0xFFU) << 24U))>,
+                    <((((((0) * 32U) + (15)) & 0x1FFU) << 0U) | ((5U & 0xFFU) << 24U))>;
+            low-power-enable;
+        };
     };
 };
 # 0 "<command-line>" 2

@@ -5,19 +5,23 @@ project(nwatch)
 
 target_sources(app PRIVATE
     src/main.c
-    src/ssd1306/ssd1306.c
     src/gfx/gfx.c
     src/event/event.c
     src/rtc/rtc.c
     src/timer/timer.c
     src/input/input.c
+    src/ui/ui.c
+    src/drivers/spi.c
+    src/obj_manager/obj_manager.c
 )
 
 target_include_directories(app PRIVATE
-    src/ssd1306
     src/gfx
     src/event
     src/rtc
     src/timer
     src/input
+    src/ui
+    src/drivers
+    src/obj_manager
 )

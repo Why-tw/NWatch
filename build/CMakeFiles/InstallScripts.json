@@ -77,6 +77,8 @@
 		"/home/i4why/workspace/zephyrproject/nwatch/build/zephyr/drivers/pinctrl/cmake_install.cmake",
 		"/home/i4why/workspace/zephyrproject/nwatch/build/zephyr/drivers/pinctrl/renesas/cmake_install.cmake",
 		"/home/i4why/workspace/zephyrproject/nwatch/build/zephyr/drivers/serial/cmake_install.cmake",
+		"/home/i4why/workspace/zephyrproject/nwatch/build/zephyr/drivers/spi/cmake_install.cmake",
+		"/home/i4why/workspace/zephyrproject/nwatch/build/zephyr/drivers/spi/spi_nxp_lpspi/cmake_install.cmake",
 		"/home/i4why/workspace/zephyrproject/nwatch/build/zephyr/drivers/timer/cmake_install.cmake",
 		"/home/i4why/workspace/zephyrproject/nwatch/build/modules/acpica/cmake_install.cmake",
 		"/home/i4why/workspace/zephyrproject/nwatch/build/modules/cmsis/cmake_install.cmake",

@@ -33,6 +33,10 @@
 /home/i4why/workspace/zephyrproject/zephyr/dts/bindings/spi/nordic,nrf-spi.yaml
 /home/i4why/workspace/zephyrproject/zephyr/dts/bindings/spi/nordic,nrf-spi-common.yaml
 /home/i4why/workspace/zephyrproject/zephyr/dts/bindings/spi/spi-controller.yaml
+/home/i4why/workspace/zephyrproject/zephyr/dts/bindings/display/solomon,ssd1306-spi.yaml
+/home/i4why/workspace/zephyrproject/zephyr/dts/bindings/display/display-controller.yaml
+/home/i4why/workspace/zephyrproject/zephyr/dts/bindings/display/solomon,ssd1306-common.yaml
+/home/i4why/workspace/zephyrproject/zephyr/dts/bindings/spi/spi-device.yaml
 /home/i4why/workspace/zephyrproject/zephyr/dts/bindings/net/wireless/nordic,nrf-nfct.yaml
 /home/i4why/workspace/zephyrproject/zephyr/dts/bindings/gpio/nordic,nrf-gpiote.yaml
 /home/i4why/workspace/zephyrproject/zephyr/dts/bindings/misc/nordic,split-channels.yaml

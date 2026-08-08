@@ -1,9 +1,25 @@
-&i2c0 {
+/ {
+    chosen {
+        zephyr,display = &ssd1306;
+    };
+};
+
+&spi1 {
     status = "okay";
 
-    ssd1306: ssd1306@3c {
-        compatible = "solomon,ssd1306fb";
-        reg = <0x3c>;
+    cs-gpios = <&gpio0 28 GPIO_ACTIVE_LOW>;
+
+    ssd1306: display@0 {
+        com-invdir;
+        segment-remap;
+        compatible = "solomon,ssd1306";
+        status = "okay";
+
+        reg = <0>;
+        spi-max-frequency = <8000000>;
+
+        data-cmd-gpios = <&gpio0 29 GPIO_ACTIVE_HIGH>;
+        reset-gpios = <&gpio0 30 GPIO_ACTIVE_LOW>;
 
         width = <128>;
         height = <64>;
@@ -13,8 +29,27 @@
         display-offset = <0>;
         multiplex-ratio = <63>;
 
-        segment-remap;
-        com-invdir;
         prechargep = <0x22>;
+
+        /* Binding 有 default，可先省略 */
+        oscillator-freq = <0x80>;
+        ready-time-ms = <10>;
+    };
+};
+
+&pinctrl {
+    spi1_default: spi1_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 16)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 15)>;
+        };
+    };
+
+    spi1_sleep: spi1_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 16)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 15)>;
+            low-power-enable;
+        };
     };
 };

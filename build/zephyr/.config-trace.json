@@ -484,6 +484,17 @@
     ]
   ],
   [
+    "CONFIG_DT_HAS_SOLOMON_SSD1306_ENABLED",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "/home/i4why/workspace/zephyrproject/nwatch/build/Kconfig/Kconfig.dts",
+      13583
+    ]
+  ],
+  [
     "CONFIG_DT_HAS_ZEPHYR_BT_HCI_LL_SW_SPLIT_ENABLED",
     "n",
     "bool",
@@ -575,10 +586,9 @@
     "y",
     "bool",
     "y",
-    "assign",
+    "select",
     [
-      "/home/i4why/workspace/zephyrproject/zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840_defconfig",
-      7
+      "SPI_NRFX && SOC_FAMILY_NORDIC_NRF && SPI"
     ]
   ],
   [
@@ -596,9 +606,11 @@
     "CONFIG_SPI",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "select",
+    [
+      "SSD1306 && (DT_HAS_SOLOMON_SSD1306_ENABLED || DT_HAS_SOLOMON_SSD1306B_ENABLED || DT_HAS_SOLOMON_SSD1315_ENABLED || DT_HAS_SOLOMON_SSD1309_ENABLED || DT_HAS_SOLOMON_SSD1305_ENABLED || DT_HAS_SINOWEALTH_SH1106_ENABLED || DT_HAS_SINOWEALTH_SH1107_ENABLED || DT_HAS_CHIPWEALTH_CH1115_ENABLED || DT_HAS_CHIPWEALTH_CH1116_ENABLED) && DISPLAY"
+    ]
   ],
   [
     "CONFIG_MIPI_DSI",
@@ -2055,17 +2067,21 @@
     "CONFIG_NRFX_SPI",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "select",
+    [
+      "SPI_NRFX_SPI && DT_HAS_NORDIC_NRF_SPI_ENABLED && SPI_NRFX && SPI"
+    ]
   ],
   [
     "CONFIG_NRFX_SPIM",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "select",
+    [
+      "SPI_NRFX_SPIM && DT_HAS_NORDIC_NRF_SPIM_ENABLED && !SPI_RTIO && SPI_NRFX && SPI"
+    ]
   ],
   [
     "CONFIG_NRFX_SYSTICK",
@@ -5633,6 +5649,28 @@
     null
   ],
   [
+    "CONFIG_SSD1306",
+    "y",
+    "bool",
+    "y",
+    "assign",
+    [
+      "/home/i4why/workspace/zephyrproject/nwatch/prj.conf",
+      8
+    ]
+  ],
+  [
+    "CONFIG_SSD1306_DEFAULT_CONTRAST",
+    "y",
+    "int",
+    "128",
+    "default",
+    [
+      "/home/i4why/workspace/zephyrproject/zephyr/drivers/display/Kconfig.ssd1306",
+      39
+    ]
+  ],
+  [
     "CONFIG_DMA",
     "y",
     "bool",
@@ -6048,7 +6086,8 @@
     "select",
     [
       "I2C_NRFX && SOC_FAMILY_NORDIC_NRF && MULTITHREADING && I2C",
-      "UART_NRFX && (DT_HAS_NORDIC_NRF_UART_ENABLED || DT_HAS_NORDIC_NRF_UARTE_ENABLED) && SERIAL"
+      "UART_NRFX && (DT_HAS_NORDIC_NRF_UART_ENABLED || DT_HAS_NORDIC_NRF_UARTE_ENABLED) && SERIAL",
+      "SPI_NRFX && SOC_FAMILY_NORDIC_NRF && SPI"
     ]
   ],
   [
@@ -6348,6 +6387,115 @@
     null,
     "unset",
     null
+  ],
+  [
+    "CONFIG_SPI_ASYNC",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SPI_RTIO",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SPI_SLAVE",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SPI_EXTENDED_MODES",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SPI_INIT_PRIORITY",
+    "y",
+    "int",
+    "50",
+    "default",
+    [
+      "/home/i4why/workspace/zephyrproject/zephyr/drivers/spi/Kconfig",
+      77
+    ]
+  ],
+  [
+    "CONFIG_SPI_COMPLETION_TIMEOUT_TOLERANCE",
+    "y",
+    "int",
+    "200",
+    "default",
+    [
+      "/home/i4why/workspace/zephyrproject/zephyr/drivers/spi/Kconfig",
+      83
+    ]
+  ],
+  [
+    "CONFIG_SPI_NRFX",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/home/i4why/workspace/zephyrproject/zephyr/drivers/spi/Kconfig.nrfx",
+      6
+    ]
+  ],
+  [
+    "CONFIG_SPI_NRFX_SPI",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "/home/i4why/workspace/zephyrproject/zephyr/drivers/spi/Kconfig.nrfx",
+      16
+    ]
+  ],
+  [
+    "CONFIG_SPI_NRFX_SPIM",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "/home/i4why/workspace/zephyrproject/zephyr/drivers/spi/Kconfig.nrfx",
+      21
+    ]
+  ],
+  [
+    "CONFIG_SPI_NRFX_RAM_BUFFER_SIZE",
+    "y",
+    "int",
+    "8",
+    "default",
+    [
+      "/home/i4why/workspace/zephyrproject/zephyr/drivers/spi/Kconfig.nrfx",
+      52
+    ]
+  ],
+  [
+    "CONFIG_SPI_NRFX_WAKE_TIMEOUT_US",
+    "y",
+    "int",
+    "200",
+    "default",
+    [
+      "/home/i4why/workspace/zephyrproject/zephyr/drivers/spi/Kconfig.nrfx",
+      83
+    ]
   ],
   [
     "CONFIG_STEPPER",

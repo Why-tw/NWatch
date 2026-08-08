@@ -60,6 +60,6 @@ cmake:
     zephyr-base: '/home/i4why/workspace/zephyrproject/zephyr'
 version: '0.1.0'
 west:
-  command: '/home/i4why/.venvs/zephyr/bin/west build -b nrf52840dk/nrf52840 -p always'
+  command: '/home/i4why/.venvs/zephyr/bin/west build -b nrf52840dk .'
   topdir: '/home/i4why/workspace/zephyrproject'
   version: '1.5.0'

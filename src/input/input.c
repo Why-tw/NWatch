@@ -16,21 +16,25 @@ static struct gpio_callback btn3_cb;
 
 static void btn0_handler(const struct device *port, struct gpio_callback *cb,
                          gpio_port_pins_t pins) {
+  printk("btn0\n");
   event_t e = EVENT_BUTTON0;
   k_msgq_put(&event_msgq, &e, K_NO_WAIT);
 }
 static void btn1_handler(const struct device *port, struct gpio_callback *cb,
                          gpio_port_pins_t pins) {
+  printk("btn1\n");
   event_t e = EVENT_BUTTON1;
   k_msgq_put(&event_msgq, &e, K_NO_WAIT);
 }
 static void btn2_handler(const struct device *port, struct gpio_callback *cb,
                          gpio_port_pins_t pins) {
+  printk("btn2\n");
   event_t e = EVENT_BUTTON2;
   k_msgq_put(&event_msgq, &e, K_NO_WAIT);
 }
 static void btn3_handler(const struct device *port, struct gpio_callback *cb,
                          gpio_port_pins_t pins) {
+  printk("btn3\n");
   event_t e = EVENT_BUTTON3;
   k_msgq_put(&event_msgq, &e, K_NO_WAIT);
 }

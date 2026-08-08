@@ -22,6 +22,7 @@
 		zephyr,bt-c2h-uart = &uart0;                 /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:23 */
 		zephyr,ieee802154 = &ieee802154;             /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:24 */
 		zephyr,boot-mode = &boot_mode0;              /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:25 */
+		zephyr,display = &ssd1306;                   /* in nwatch/app.overlay:3 */
 	};
 
 	/* node '/aliases' defined in zephyr/dts/common/skeleton.dtsi:15 */
@@ -199,26 +200,11 @@
 			easydma-maxcnt-bits = < 0x10 >; /* in zephyr/dts/arm/nordic/nrf52840.dtsi:159 */
 			zephyr,pm-device-runtime-auto;  /* in zephyr/dts/arm/nordic/nrf52840.dtsi:161 */
 			compatible = "nordic,nrf-twi";  /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:202 */
+			status = "okay";                /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:203 */
 			pinctrl-0 = < &i2c0_default >;  /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:204 */
 			pinctrl-1 = < &i2c0_sleep >;    /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:205 */
 			pinctrl-names = "default",
 			                "sleep";        /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:206 */
-			status = "okay";                /* in nwatch/app.overlay:2 */
-
-			/* node '/soc/i2c@40003000/ssd1306@3c' defined in nwatch/app.overlay:4 */
-			ssd1306: ssd1306@3c {
-				compatible = "solomon,ssd1306fb"; /* in nwatch/app.overlay:5 */
-				reg = < 0x3c >;                   /* in nwatch/app.overlay:6 */
-				width = < 0x80 >;                 /* in nwatch/app.overlay:8 */
-				height = < 0x40 >;                /* in nwatch/app.overlay:9 */
-				segment-offset = < 0x0 >;         /* in nwatch/app.overlay:11 */
-				page-offset = < 0x0 >;            /* in nwatch/app.overlay:12 */
-				display-offset = < 0x0 >;         /* in nwatch/app.overlay:13 */
-				multiplex-ratio = < 0x3f >;       /* in nwatch/app.overlay:14 */
-				segment-remap;                    /* in nwatch/app.overlay:16 */
-				com-invdir;                       /* in nwatch/app.overlay:17 */
-				prechargep = < 0x22 >;            /* in nwatch/app.overlay:18 */
-			};
 		};
 
 		/* node '/soc/spi@40003000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:164 */
@@ -262,11 +248,33 @@
 			max-frequency = < 0x7a1200 >;   /* in zephyr/dts/arm/nordic/nrf52840.dtsi:213 */
 			easydma-maxcnt-bits = < 0x10 >; /* in zephyr/dts/arm/nordic/nrf52840.dtsi:214 */
 			compatible = "nordic,nrf-spi";  /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:235 */
-			status = "okay";                /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:236 */
 			pinctrl-0 = < &spi1_default >;  /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:237 */
 			pinctrl-1 = < &spi1_sleep >;    /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:238 */
 			pinctrl-names = "default",
 			                "sleep";        /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:239 */
+			status = "okay";                /* in nwatch/app.overlay:8 */
+			cs-gpios = < &gpio0 0x1c 0x1 >; /* in nwatch/app.overlay:10 */
+
+			/* node '/soc/spi@40004000/display@0' defined in nwatch/app.overlay:12 */
+			ssd1306: display@0 {
+				com-invdir;                           /* in nwatch/app.overlay:13 */
+				segment-remap;                        /* in nwatch/app.overlay:14 */
+				compatible = "solomon,ssd1306";       /* in nwatch/app.overlay:15 */
+				status = "okay";                      /* in nwatch/app.overlay:16 */
+				reg = < 0x0 >;                        /* in nwatch/app.overlay:18 */
+				spi-max-frequency = < 0x7a1200 >;     /* in nwatch/app.overlay:19 */
+				data-cmd-gpios = < &gpio0 0x1d 0x0 >; /* in nwatch/app.overlay:21 */
+				reset-gpios = < &gpio0 0x1e 0x1 >;    /* in nwatch/app.overlay:22 */
+				width = < 0x80 >;                     /* in nwatch/app.overlay:24 */
+				height = < 0x40 >;                    /* in nwatch/app.overlay:25 */
+				segment-offset = < 0x0 >;             /* in nwatch/app.overlay:27 */
+				page-offset = < 0x0 >;                /* in nwatch/app.overlay:28 */
+				display-offset = < 0x0 >;             /* in nwatch/app.overlay:29 */
+				multiplex-ratio = < 0x3f >;           /* in nwatch/app.overlay:30 */
+				prechargep = < 0x22 >;                /* in nwatch/app.overlay:32 */
+				oscillator-freq = < 0x80 >;           /* in nwatch/app.overlay:35 */
+				ready-time-ms = < 0xa >;              /* in nwatch/app.overlay:36 */
+			};
 		};
 
 		/* node '/soc/nfct@40005000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:218 */
@@ -284,7 +292,7 @@
 			interrupts = < 0x6 0x5 >;         /* in zephyr/dts/arm/nordic/nrf52840.dtsi:228 */
 			instance = < 0x0 >;               /* in zephyr/dts/arm/nordic/nrf52840.dtsi:230 */
 			status = "okay";                  /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:162 */
-			phandle = < 0x17 >;               /* in zephyr/dts/arm/nordic/nrf52840.dtsi:572 */
+			phandle = < 0x18 >;               /* in zephyr/dts/arm/nordic/nrf52840.dtsi:572 */
 		};
 
 		/* node '/soc/adc@40007000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:233 */
@@ -318,7 +326,7 @@
 			max-bit-width = < 0x20 >;        /* in zephyr/dts/arm/nordic/nrf52840.dtsi:257 */
 			interrupts = < 0x9 0x1 >;        /* in zephyr/dts/arm/nordic/nrf52840.dtsi:258 */
 			prescaler = < 0x0 >;             /* in zephyr/dts/arm/nordic/nrf52840.dtsi:259 */
-			phandle = < 0x18 >;              /* in zephyr/dts/vendor/nordic/nrf_common.dtsi:42 */
+			phandle = < 0x19 >;              /* in zephyr/dts/vendor/nordic/nrf_common.dtsi:42 */
 		};
 
 		/* node '/soc/timer@4000a000' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:262 */
@@ -775,7 +783,7 @@
 			                  "A3",
 			                  "A4",
 			                  "A5";                      /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:172 */
-			phandle = < 0x19 >;                          /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:32 */
+			phandle = < 0xc >;                           /* in nwatch/app.overlay:10 */
 		};
 
 		/* node '/soc/gpio@50000300' defined in zephyr/dts/arm/nordic/nrf52840.dtsi:575 */
@@ -863,7 +871,7 @@
 
 		/* node '/pin-controller/uart1_default' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:35 */
 		uart1_default: uart1_default {
-			phandle = < 0x10 >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:196 */
+			phandle = < 0x11 >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:196 */
 
 			/* node '/pin-controller/uart1_default/group1' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:36 */
 			group1 {
@@ -879,7 +887,7 @@
 
 		/* node '/pin-controller/uart1_sleep' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:46 */
 		uart1_sleep: uart1_sleep {
-			phandle = < 0x11 >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:197 */
+			phandle = < 0x12 >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:197 */
 
 			/* node '/pin-controller/uart1_sleep/group1' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:47 */
 			group1 {
@@ -937,7 +945,7 @@
 
 		/* node '/pin-controller/pwm0_default' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:84 */
 		pwm0_default: pwm0_default {
-			phandle = < 0xc >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:220 */
+			phandle = < 0xd >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:220 */
 
 			/* node '/pin-controller/pwm0_default/group1' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:85 */
 			group1 {
@@ -948,7 +956,7 @@
 
 		/* node '/pin-controller/pwm0_sleep' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:91 */
 		pwm0_sleep: pwm0_sleep {
-			phandle = < 0xd >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:221 */
+			phandle = < 0xe >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:221 */
 
 			/* node '/pin-controller/pwm0_sleep/group1' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:92 */
 			group1 {
@@ -988,9 +996,8 @@
 
 			/* node '/pin-controller/spi1_default/group1' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:116 */
 			group1 {
-				psels = < 0x400001f >,
-				        < 0x500001e >,
-				        < 0x6000028 >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:117 */
+				psels = < 0x4000010 >,
+				        < 0x500000f >; /* in nwatch/app.overlay:43 */
 			};
 		};
 
@@ -1000,16 +1007,15 @@
 
 			/* node '/pin-controller/spi1_sleep/group1' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:124 */
 			group1 {
-				psels = < 0x400001f >,
-				        < 0x500001e >,
-				        < 0x6000028 >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:125 */
-				low-power-enable;      /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:128 */
+				psels = < 0x4000010 >,
+				        < 0x500000f >; /* in nwatch/app.overlay:50 */
+				low-power-enable;      /* in nwatch/app.overlay:52 */
 			};
 		};
 
 		/* node '/pin-controller/spi2_default' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:132 */
 		spi2_default: spi2_default {
-			phandle = < 0xe >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:245 */
+			phandle = < 0xf >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:245 */
 
 			/* node '/pin-controller/spi2_default/group1' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:133 */
 			group1 {
@@ -1021,7 +1027,7 @@
 
 		/* node '/pin-controller/spi2_sleep' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:140 */
 		spi2_sleep: spi2_sleep {
-			phandle = < 0xf >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:246 */
+			phandle = < 0x10 >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:246 */
 
 			/* node '/pin-controller/spi2_sleep/group1' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:141 */
 			group1 {
@@ -1034,7 +1040,7 @@
 
 		/* node '/pin-controller/qspi_default' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:149 */
 		qspi_default: qspi_default {
-			phandle = < 0x12 >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:252 */
+			phandle = < 0x13 >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:252 */
 
 			/* node '/pin-controller/qspi_default/group1' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:150 */
 			group1 {
@@ -1050,7 +1056,7 @@
 
 		/* node '/pin-controller/qspi_sleep' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:161 */
 		qspi_sleep: qspi_sleep {
-			phandle = < 0x13 >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:253 */
+			phandle = < 0x14 >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:253 */
 
 			/* node '/pin-controller/qspi_sleep/group1' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:162 */
 			group1 {
@@ -1072,7 +1078,7 @@
 
 		/* node '/pin-controller/spi3_default' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:178 */
 		spi3_default: spi3_default {
-			phandle = < 0x15 >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:279 */
+			phandle = < 0x16 >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:279 */
 
 			/* node '/pin-controller/spi3_default/group1' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:179 */
 			group1 {
@@ -1085,7 +1091,7 @@
 
 		/* node '/pin-controller/spi3_sleep' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:187 */
 		spi3_sleep: spi3_sleep {
-			phandle = < 0x16 >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:280 */
+			phandle = < 0x17 >; /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:280 */
 
 			/* node '/pin-controller/spi3_sleep/group1' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi:188 */
 			group1 {
@@ -1246,7 +1252,7 @@
 		           < 0x13 0x0 &gpio1 0xf 0x0 >,
 		           < 0x14 0x0 &gpio0 0x1a 0x0 >,
 		           < 0x15 0x0 &gpio0 0x1b 0x0 >;   /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:93 */
-		phandle = < 0x14 >;                        /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:278 */
+		phandle = < 0x15 >;                        /* in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:278 */
 	};
 
 	/* node '/analog-connector' defined in zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840.dts:117 */
