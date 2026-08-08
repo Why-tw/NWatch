@@ -80,7 +80,6 @@ int main() {
         break;
 
       case EVENT_BUTTON0:
-        obj_animation_reset(&clock_obj);
         need_render = true;
         break;
       }
