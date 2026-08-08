@@ -70,8 +70,6 @@ int main() {
       // update screen
       switch (e) {
       case EVENT_SECOND:
-        timer_add_one_second(&watch_time);
-
         if (!during_animation)
           need_render = true;
 
