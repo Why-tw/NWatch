@@ -31,10 +31,12 @@ static vec2 back_slide[20] = {{-40, 0}, {-10, 0}, {-10, 0}, {-4, 0}, {-3, 0},
 
 int main() {
   bool during_animation = false;
+  bool need_render = false;
   obj_manager_t obj_manager;
   obj_manager_init(&obj_manager);
   buttons_init();
   rtc_init();
+  bool visible = true;
   struct k_poll_event events[] = {
       K_POLL_EVENT_STATIC_INITIALIZER(K_POLL_TYPE_MSGQ_DATA_AVAILABLE,
                                       K_POLL_MODE_NOTIFY_ONLY, &event_msgq, 0),
@@ -61,13 +63,37 @@ int main() {
         obj_animation_reset(&test_obj);
         obj_animation_reset(&clock_obj);
       }
+      if (e == EVENT_BUTTON1) {
+        visible = !visible;
+        obj_set_visible(&test_obj, visible);
+      }
       // update screen
-      if (e == (during_animation ? EVENT_ANIMATION : EVENT_SECOND)) {
+      switch (e) {
+      case EVENT_SECOND:
+        timer_add_one_second(&watch_time);
+
+        if (!during_animation)
+          need_render = true;
+
+        break;
+
+      case EVENT_ANIMATION:
+        need_render = true;
+        break;
+
+      case EVENT_BUTTON0:
+        obj_animation_reset(&clock_obj);
+        need_render = true;
+        break;
+      }
+      if (need_render) {
         gfx_clear(fb);
         obj_manager_update(fb, &obj_manager, &during_animation);
         display_write(display, 0, 0, &desc, fb);
         if (during_animation)
           rtc_fps_set(20);
+        else
+          rtc_fps_off();
       }
     }
   }

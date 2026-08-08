@@ -18,7 +18,8 @@ void draw_clock_ui_cb(uint8_t *fb, obj_t *obj) {
 }
 
 static void draw_test_ui(uint8_t *fb, int16_t x, int16_t y) {
-  gfx_print(fb, x, y, "NWATCH", 2, 3);
+  gfx_print(fb, x, y, "NWATCH", 2, 5);
+  gfx_print(fb, x + 7, y + 48, "ESP32", 2, 5);
 }
 
 void draw_test_ui_fb(uint8_t *fb, obj_t *obj) {
